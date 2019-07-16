@@ -2,8 +2,10 @@ class Persona: #definimos la clase, que es una receta para crear un objeto. la c
     edad = 0   #atributo/característica de la clase/objeto que vamos a crear
     nacionalidad = "paraguaya"
 #cuando def está dentro de class es un método, cuando está fuera es una función
-    def __init__ (self, un_nombre): #__init__ método constructor. métodos: funciones dentro una clase, opera para el objeto de adentro
+    def __init__ (self, un_nombre, una_altura, un_peso): #__init__ método constructor. métodos: funciones dentro una clase, opera para el objeto de adentro
         self.mi_nombre = un_nombre #usamos self para referirnos al objeto mismo
+        self.altura = una_altura #al usar self. se asigna una variable al objeto
+        self.peso = un_peso
         print("Hola naci, me llamo", self.mi_nombre) #mensaje que indica que se creó el objeto
  
     def cumple(self): #cumple es un método de la clase persona
@@ -17,9 +19,14 @@ class Persona: #definimos la clase, que es una receta para crear un objeto. la c
 
     def saludar (self):
         print("Hola soy",self.mi_nombre, "y mi nacionalidad es", self.nacionalidad)
+    
+    def imc (self):
+        print((self.peso)/(self.altura**2))
+    
 
-pepe = Persona("Pepito") #pepe es el objeto de la clase persona
-pepa = Persona("Pepita") #objeto pepa
+
+pepe = Persona("Pepito", 1.61, 65) #pepe es el objeto de la clase persona
+pepa = Persona("Pepita", 1.61, 69) #objeto pepa
 print(pepe.edad) #imprime la edad asignada en la variable, o sea va a tener valor 0
 print(pepe.mi_nombre) #imprime el nombre Pepito asignado con texto en el objeto pepe
 
@@ -35,3 +42,8 @@ print(pepe.edad)
 pepe.saludar()
 
 pepa.saludar()
+
+print(pepa.altura)
+print(pepa.peso)
+
+pepa.imc()
